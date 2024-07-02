@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(45,45,45,1) 100%);
+    min-height: 100vh;
+}
+
+header h1 {
+    transition: .5s;
+    cursor: default;
+}
+header h1:hover {
+    transform: scale(1.15);
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#search-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#search-input {
+    background-color: #525356;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    color: #ddd;
+    font-weight: bold;
+    width: 400px;
+    transition: .2s;
+}
+
+#search-input:focus {
+    outline: none;
+    box-shadow: 0px 0px 35px -13px rgba(255,255,255,1);
+
+}
+
+#search-input::placeholder {
+    color: #fff;
+}
+
+#exports-note {
+    background-color: #333;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#exports-note:hover {
+    background-color: #fff;
+    color: #333;
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+#add-note-container {
+    display: flex;
+    width: 400px;
+    margin: 1rem auto 0;
+    gap: 1rem;
+}
+
+#add-note-container input,
+#add-note-container button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#add-note-container input {
+    flex: 1;
+    background-color: transparent;
+    border: 1px solid #525356;
+    color: #fff;
+    transition: .2s;
+}
+
+#add-note-container button {
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    transition: .2s;
+}
+
+#add-note-container button:hover {
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+/* Notas */
+
+#notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    padding: 2rem;
+    gap: 2rem;
+    cursor: default;
+}
+
+.note {
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    background-color: #202124;
+    border-radius: 1rem;
+    color: #fff;
+    position: relative;
+    transition: .2s;
+}
+
+.note:hover {
+    transform: scale(1.1);
+}
+
+.note textarea {
+    background-color: transparent;
+    resize: none;
+    color: #fff;
+    border: none;
+    height: 100%;
+    outline: none;
+    cursor: default;
+}
+
+
+.note .bi-pin {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    transition: .1s;
+}
+
+.note .bi-pin:hover {
+    background-color: #fff;
+    color: #333;
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+.note:hover > i {
+    opacity: 1;
+}
+
+.note .bi-file-earmark-plus,
+.note .bi-x-lg {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: .9rem;
+    cursor: pointer;
+    padding: 5px;
+    color: #555;
+    transition: .2s;
+    opacity: 0;
+}
+
+.note .bi-x-lg {
+    top: 40px;
+}
+
+.note .bi-file-earmark-plus:hover,
+.note .bi-x-lg:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+.note.fixed {
+    background-color: #3c3c3f;
+}
+
+@media (max-width: 450px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    #search-container {
+        width: 100%;
+    }
+
+    #search-input {
+        width: 100%;
+    }
+
+    #add-note-container {
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    #notes-container {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+}
